@@ -25,6 +25,14 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
                                 </NavLink>
+
+                                <NavLink href={route('new-page')} active={route().current('new-page')}>
+                                    Halaman
+                                </NavLink>
+
+                                <NavLink href={route('coba')} active={route().current('coba')}>
+                                    Magic UI
+                                </NavLink>
                             </div>
                         </div>
 
@@ -95,6 +103,14 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
                             Dashboard
+                        </ResponsiveNavLink>
+                        
+                        <ResponsiveNavLink href={route('new-page')} active={route().current('new-page')}>
+                            Halaman
+                        </ResponsiveNavLink>
+
+                        <ResponsiveNavLink href={route('coba')} active={route().current('coba')}>
+                            Magic UI
                         </ResponsiveNavLink>
                     </div>
 
