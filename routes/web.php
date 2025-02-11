@@ -34,7 +34,7 @@ Route::get('/new-page', function () {
 })->name('new-page');
 
 Route::get('/coba', function () {
-    return Inertia::render('Coba');
+    return Inertia::render('CobaMarquee');
 })->name('coba');
 
 Route::middleware('auth')->group(function () {

@@ -1,9 +1,12 @@
 "use client";
 
 import React, { forwardRef, useRef } from "react";
-
 import { cn } from "@/lib/utils";
 import { AnimatedBeam } from "@/Components/magicui/animated-beam";
+
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import { Head } from "@inertiajs/react";
+import { PageProps } from '@/types';
 
 const Circle = forwardRef<
   HTMLDivElement,
@@ -24,7 +27,7 @@ const Circle = forwardRef<
 
 Circle.displayName = "Circle";
 
-export function AnimatedBeamDemo() {
+export default function Coba({ auth }: PageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const div1Ref = useRef<HTMLDivElement>(null);
   const div2Ref = useRef<HTMLDivElement>(null);
@@ -35,82 +38,90 @@ export function AnimatedBeamDemo() {
   const div7Ref = useRef<HTMLDivElement>(null);
 
   return (
-    <div
-      className="relative flex h-[300px] w-full items-center justify-center overflow-hidden p-10"
-      ref={containerRef}
+    <AuthenticatedLayout
+        user={auth.user}
+        header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Animated Beam</h2>}
     >
-      <div className="flex size-full max-h-[200px] max-w-lg flex-col items-stretch justify-between gap-10">
-        <div className="flex flex-row items-center justify-between">
-          <Circle ref={div1Ref}>
-            <Icons.googleDrive />
-          </Circle>
-          <Circle ref={div5Ref}>
-            <Icons.googleDocs />
-          </Circle>
-        </div>
-        <div className="flex flex-row items-center justify-between">
-          <Circle ref={div2Ref}>
-            <Icons.notion />
-          </Circle>
-          <Circle ref={div4Ref} className="size-16">
-            <Icons.openai />
-          </Circle>
-          <Circle ref={div6Ref}>
-            <Icons.zapier />
-          </Circle>
-        </div>
-        <div className="flex flex-row items-center justify-between">
-          <Circle ref={div3Ref}>
-            <Icons.whatsapp />
-          </Circle>
-          <Circle ref={div7Ref}>
-            <Icons.messenger />
-          </Circle>
-        </div>
-      </div>
+        <Head title="Animated Beam" />
 
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div1Ref}
-        toRef={div4Ref}
-        curvature={-75}
-        endYOffset={-10}
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div2Ref}
-        toRef={div4Ref}
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div3Ref}
-        toRef={div4Ref}
-        curvature={75}
-        endYOffset={10}
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div5Ref}
-        toRef={div4Ref}
-        curvature={-75}
-        endYOffset={-10}
-        reverse
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div6Ref}
-        toRef={div4Ref}
-        reverse
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div7Ref}
-        toRef={div4Ref}
-        curvature={75}
-        endYOffset={10}
-        reverse
-      />
-    </div>
+        <div
+          className="relative flex h-[300px] w-full items-center justify-center overflow-hidden p-10"
+          ref={containerRef}
+        >
+          <div className="flex size-full max-h-[200px] max-w-lg flex-col items-stretch justify-between gap-10">
+            <div className="flex flex-row items-center justify-between">
+              <Circle ref={div1Ref}>
+                <Icons.googleDrive />
+              </Circle>
+              <Circle ref={div5Ref}>
+                <Icons.googleDocs />
+              </Circle>
+            </div>
+            <div className="flex flex-row items-center justify-between">
+              <Circle ref={div2Ref}>
+                <Icons.notion />
+              </Circle>
+              <Circle ref={div4Ref} className="size-16">
+                <Icons.openai />
+              </Circle>
+              <Circle ref={div6Ref}>
+                <Icons.zapier />
+              </Circle>
+            </div>
+            <div className="flex flex-row items-center justify-between">
+              <Circle ref={div3Ref}>
+                <Icons.whatsapp />
+              </Circle>
+              <Circle ref={div7Ref}>
+                <Icons.messenger />
+              </Circle>
+            </div>
+          </div>
+
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div1Ref}
+            toRef={div4Ref}
+            curvature={-75}
+            endYOffset={-10}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div2Ref}
+            toRef={div4Ref}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div3Ref}
+            toRef={div4Ref}
+            curvature={75}
+            endYOffset={10}
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div5Ref}
+            toRef={div4Ref}
+            curvature={-75}
+            endYOffset={-10}
+            reverse
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div6Ref}
+            toRef={div4Ref}
+            reverse
+          />
+          <AnimatedBeam
+            containerRef={containerRef}
+            fromRef={div7Ref}
+            toRef={div4Ref}
+            curvature={75}
+            endYOffset={10}
+            reverse
+          />
+        </div>
+    </AuthenticatedLayout>
+    
   );
 }
 
